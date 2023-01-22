@@ -1,0 +1,14 @@
+services:
+    workspace:
+        build:
+            context: ./docker/workspace
+            args:
+                USERNAME: ${USERNAME-vscode}
+                USER_UID: ${USER_UID-1000}
+                USER_GID: ${USER_GID-1000}
+                TIME_ZONE: ${TIME_ZONE-UTC}
+                LOCALE: ${LOCALE-C}
+        tty: true
+        volumes:
+            - ../:/workspace
+        working_dir: /workspace
